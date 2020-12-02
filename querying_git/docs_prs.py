@@ -1,5 +1,6 @@
 import requests, json, os
 from pprint import pprint
+# Need to update this for GraphQL
 
 query_url = "https://api.github.com/repos/apache/druid/pulls"
 params = {
