@@ -1,5 +1,4 @@
 # write demo data to kinsis stream
-# based on https://aws.amazon.com/blogs/big-data/snakes-in-the-stream-feeding-and-eating-amazon-kinesis-streams-with-python/
 import boto3, json
 import os, time
 
@@ -22,7 +21,7 @@ def load_records(samplefile):
     print("Starting to load data.")
     with open(samplefile, "r") as sampledata:
         for line in sampledata.readlines():
-            print("Loading %s" %(line))
+            #print("Loading %s" %(line))
             samplerow = bytearray(line, "utf-8")
             kinesis.put_record(StreamName=stream, Data=samplerow, PartitionKey=partitionkey)
         # All done
@@ -36,7 +35,7 @@ def main():
 
     # Destination stream in Kenisis
     global stream
-    stream = "wiki_tutorial-DOCKER"
+    stream = "wiki_kinesis_tutorial"
     # Arbitrary partition key (this may need work)
     global partitionkey
     partitionkey = "partition_key"

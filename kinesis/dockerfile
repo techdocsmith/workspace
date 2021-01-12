@@ -1,10 +1,19 @@
+# Docker image to launch a container that
+# runs a script to load wiki data to Kinesis.
+
+# Use the Python base image
 FROM python:3
 
+# Set the image/container working directory
 WORKDIR /usr/src/app
 
+# Install boto client required for script
 RUN pip3 install boto3
 
+# Copy the contents of the current directory
+# to the image working directory.
 COPY . .
 
-
-#CMD ["./kinesis.py" ]
+# Run the script
+CMD ["./kinesis.py" ]
+ENTRYPOINT ["python"]
