@@ -1,0 +1,20 @@
+{ "prs" : [
+"https://github.com/apache/druid/pull/11040",
+"https://github.com/apache/druid/pull/11018",
+"https://github.com/apache/druid/pull/11058",
+"https://github.com/apache/druid/pull/10543",
+"https://github.com/apache/druid/pull/11036",
+"https://github.com/apache/druid/pull/10613",
+"https://github.com/apache/druid/pull/11010",
+"https://github.com/apache/druid/pull/11004",
+"https://github.com/apache/druid/pull/11039",
+"https://github.com/apache/druid/pull/11008",
+"https://github.com/apache/druid/pull/11063",
+"https://github.com/apache/druid/pull/10267",
+"https://github.com/apache/druid/pull/11083",
+"https://github.com/apache/druid/pull/10976",
+"https://github.com/apache/druid/pull/11006",
+"https://github.com/apache/druid/pull/10912",
+"https://github.com/apache/druid/pull/11060"],
+"release" : "2024.04"
+}
