@@ -4,10 +4,12 @@ NODE_COUNT = 3
 
 Vagrant.configure("2") do |config|
     config.vm.provision "shell", inline: "echo Hello"
-    config.vm.network "private_network", type: "dhcp", name: "vboxnet3"
+    # config.vm.network "private_network", type: "dhcp"
+    config.vm.network "private_network", :type => 'dhcp', :name => 'vboxnet0', :adapter => 2
     config.vm.provider "virtualbox" do |vb|
         vb.memory = "4048"
       end
+    
     
     config.vm.define "manager" do |subconfig|
         subconfig.vm.box = BOX_IMAGE
@@ -15,7 +17,6 @@ Vagrant.configure("2") do |config|
         subconfig.vm.network :forwarded_port, guest: 9097, host: 9097
         subconfig.vm.provider "virtualbox" do |v|
           v.cpus = 2
-        #subconfig.vm.network "private_network", ip: "192.168.25.10", auto_config: false
         end
       end
   
@@ -23,7 +24,6 @@ Vagrant.configure("2") do |config|
         config.vm.define "agent#{i}" do |subconfig|
           subconfig.vm.box = BOX_IMAGE
           subconfig.vm.hostname = "agent#{i}"
-          #subconfig.vm.network "private_network", ip: "192.168.25.#{i}", auto_config: false
       end
     end
 end
