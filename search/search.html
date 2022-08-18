@@ -8,7 +8,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script async src="https://cse.google.com/cse.js?cx=xxxxxxxxxx">
+<script async src="https://cse.google.com/cse.js?cx=xxxxxxxxxxxxxxxxx">
 </script>
 <style>
 body {
@@ -19,7 +19,7 @@ body {
   box-sizing: border-box;
 }
 
-form.search input[type=text] {
+.search input[type=text] {
   padding: 10px;
   font-size: 17px;
   border: 1px solid #001B47;
@@ -32,7 +32,7 @@ form.search input[type=text] {
   border-bottom-right-radius: 3px;
 }
 
-form.search button {
+.search button {
   float: left;
   width: 20%;
   padding: 10px;
@@ -46,24 +46,24 @@ form.search button {
   border-bottom-left-radius: 3px;
 }
 
-search.example button:hover {
+.search button:hover {
   background:  #001B47;
 }
 
-search.example::after {
+.search::after {
   content: "";
   clear: both;
   display: table;
 }
 
-input::placeholder {
+.search-input::placeholder {
   color: white;
 }
 
-search.middle:focus {
+.search.middle:focus {
     outline-width: 0;
 }
-}
+
 </style>
 </head>
 <body>
@@ -80,7 +80,7 @@ search.middle:focus {
 <p>Centered inside a form with max-width:</p>
 <form class="search" action="/search" style="margin:auto;max-width:300px">
   <button type="submit"><i class="fa fa-search"></i></button>
-  <input type="text" placeholder="Search..." name="q">
+  <input type="text" placeholder="Search..." name="q" class="search-input">
 </form>
 <div></div>
 <div class="gcse-searchresults-only"></div>
