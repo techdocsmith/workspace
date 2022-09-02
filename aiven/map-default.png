@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style>@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><meta name="theme-color" content="#000"><title>Grafana</title><!-- base href="http://localhost:3000/" --><link rel="preload" href="http://localhost:3000/public/fonts/roboto/RxZJdnzeo3R5zSexge8UUVtXRa8TVwTICgirnJhmVJw.woff2" as="font" crossorigin=""><link rel="icon" type="image/png" href="http://localhost:3000/public/img/fav32.png"><link rel="apple-touch-icon" sizes="180x180" href="http://localhost:3000/public/img/apple-touch-icon.png"><link rel="mask-icon" href="http://localhost:3000/public/img/grafana_mask_icon.svg" color="#F05A28"><link rel="stylesheet" href="map-default_files/grafana.dark.6c90b8800e5171d28a90.css"><script nonce="">performance.mark('frontend_boot_css_time_seconds');</script><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="msapplication-TileColor" content="#2b5797"><meta name="msapplication-config" content="public/img/browserconfig.xml"><style data-emotion="css" data-s=""></style><style data-emotion="css" data-s=""></style><style data-emotion="css-global" data-s=""></style><style id="detectElementResize" type="text/css">@keyframes resizeanim { from { opacity: 0; } to { opacity: 0; } } .resize-triggers { animation: 1ms resizeanim; visibility: hidden; opacity: 0; } .resize-triggers, .resize-triggers > div, .contract-trigger:before { content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; z-index: -1; } .resize-triggers > div { background: #eee; overflow: auto; } .contract-trigger:before { width: 200%; height: 200%; }</style><style data-emotion="css" data-s=""></style><link type="text/css" rel="stylesheet" href="blob:http://localhost:3000/df870148-9955-4ee3-9cb7-6f3a976fb3f0"><link type="text/css" rel="stylesheet" href="blob:http://localhost:3000/9e1ed4ed-c593-49f2-96f1-9c50acc2c9e1"><link type="text/css" rel="stylesheet" href="map-default_files/worldmap.dark.css"></head><body class="theme-dark app-grafana"><style>.preloader {
+        height: 100%;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .preloader__enter {
+        opacity: 0;
+        animation-name: preloader-fade-in;
+        animation-iteration-count: 1;
+        animation-duration: 0.9s;
+        animation-delay: 1.35s;
+        animation-fill-mode: forwards;
+      }
+
+      .preloader__bounce {
+        text-align: center;
+        animation-name: preloader-bounce;
+        animation-duration: 0.9s;
+        animation-iteration-count: infinite;
+      }
+
+      .preloader__logo {
+        display: inline-block;
+        animation-name: preloader-squash;
+        animation-duration: 0.9s;
+        animation-iteration-count: infinite;
+        width: 60px;
+        height: 60px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url('public/img/grafana_icon.svg');
+      }
+
+      .preloader__text {
+        margin-top: 16px;
+        font-weight: 500;
+        font-size: 14px;
+        font-family: Sans-serif;
+        opacity: 0;
+        animation-name: preloader-fade-in;
+        animation-duration: 0.9s;
+        animation-delay: 1.8s;
+        animation-fill-mode: forwards;
+      }
+
+      .theme-light .preloader__text {
+        color: #52545c;
+      }
+
+      .theme-dark .preloader__text {
+        color: #d8d9da;
+      }
+
+      @keyframes preloader-fade-in {
+        0% {
+          opacity: 0;
+           
+          animation-timing-function: cubic-bezier(0, 0, 0.5, 1);
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes preloader-bounce {
+        from,
+        to {
+          transform: translateY(0px);
+          animation-timing-function: cubic-bezier(0.3, 0, 0.1, 1);
+        }
+        50% {
+          transform: translateY(-50px);
+          animation-timing-function: cubic-bezier(0.9, 0, 0.7, 1);
+        }
+      }
+
+      @keyframes preloader-squash {
+        0% {
+          transform: scaleX(1.3) scaleY(0.8);
+          animation-timing-function: cubic-bezier(0.3, 0, 0.1, 1);
+          transform-origin: bottom center;
+        }
+        15% {
+          transform: scaleX(0.75) scaleY(1.25);
+          animation-timing-function: cubic-bezier(0, 0, 0.7, 0.75);
+          transform-origin: bottom center;
+        }
+        55% {
+          transform: scaleX(1.05) scaleY(0.95);
+          animation-timing-function: cubic-bezier(0.9, 0, 1, 1);
+          transform-origin: top center;
+        }
+        95% {
+          transform: scaleX(0.75) scaleY(1.25);
+          animation-timing-function: cubic-bezier(0, 0, 0, 1);
+          transform-origin: bottom center;
+        }
+        100% {
+          transform: scaleX(1.3) scaleY(0.8);
+          transform-origin: bottom center;
+          animation-timing-function: cubic-bezier(0, 0, 0.7, 1);
+        }
+      }
+
+       
+      .preloader__text--fail {
+        display: none;
+      }
+
+       
+      .preloader--done .preloader__bounce,
+      .preloader--done .preloader__logo {
+        animation-name: none;
+        display: none;
+      }
+
+      .preloader--done .preloader__logo,
+      .preloader--done .preloader__text {
+        display: none;
+        color: #ff5705 !important;
+        font-size: 15px;
+      }
+
+      .preloader--done .preloader__text--fail {
+        display: block;
+      }
+
+      [ng\:cloak],
+      [ng-cloak],
+      .ng-cloak {
+        display: none !important;
+      }</style><div id="reactRoot"><div class="grafana-app"><div class="css-keyl2d"><nav class="css-1218n9r-sidemenu sidemenu" data-testid="sidemenu" aria-label="Main menu"><span data-focus-scope-start="true" hidden=""></span><div class="css-wygml9"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="css-eyx4do"><path d="M3,8H21a1,1,0,0,0,0-2H3A1,1,0,0,0,3,8Zm18,8H3a1,1,0,0,0,0,2H21a1,1,0,0,0,0-2Zm0-5H3a1,1,0,0,0,0,2H21a1,1,0,0,0,0-2Z"></path></svg></div></div><button aria-label="Open navigation menu" class="css-5n5dhy"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="css-hj6vlq"><path d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"></path></svg></div></button><div class="css-iqpvfv" id="navbar-menu-portal-container"></div><div class="css-1j6e100"><a class="css-14a2vyn" aria-label="Home" aria-haspopup="true" href="http://localhost:3000/"><div class="css-mcwjf4"><img src="map-default_files/grafana_icon.svg" alt="Grafana"></div></a></div><div class="css-12b7m5k css-1ufu8gm" style="position: relative; overflow: hidden; width: 100%; height: auto; min-height: 0px; max-height: 100%;"><div style="position: relative; overflow: scroll; margin-right: 0px; margin-bottom: 0px; max-height: calc(100% + 0px);" class="scrollbar-view"><div class="css-bv62au"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="css-f29utx"><path d="M17,13.41,12.71,9.17a1,1,0,0,0-1.42,0L7.05,13.41a1,1,0,0,0,0,1.42,1,1,0,0,0,1.41,0L12,11.29l3.54,3.54a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29A1,1,0,0,0,17,13.41Z"></path></svg></div></div><div class="css-1bqnmih"><div class="css-1etxbbi"></div><ul class="css-kmtjxr"><li class="css-1inbft0"><div class="css-1koed79 dropdown"><button class="css-1koed79" type="button" id="react-aria5830123768-1" aria-haspopup="true" aria-expanded="false" aria-label="Search dashboards"><span class="css-mcwjf4"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="css-eyx4do"><path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"></path></svg></div></span></button></div></li><li class="css-1b4r4c9"><div class="css-1koed79 dropdown"><button class="css-1koed79" type="button" id="react-aria5830123768-4" aria-haspopup="true" aria-expanded="false" aria-label="Starred"><span class="css-mcwjf4"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="css-eyx4do"><path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68a1,1,0,0,0,.4,1,1,1,0,0,0,1.05.07L12,18.76l5.1,2.68a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.89l.72,4.19-3.76-2a1,1,0,0,0-.94,0l-3.76,2,.72-4.19a1,1,0,0,0-.29-.89l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z"></path></svg></div></span></button></div></li><li class="css-1b4r4c9"><div class="css-1koed79 dropdown"><a type="button" id="react-aria5830123768-7" aria-haspopup="true" aria-expanded="false" class="css-1koed79" aria-label="Dashboards" href="http://localhost:3000/dashboards"><span class="css-mcwjf4"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="css-eyx4do"><path d="M10,13H3a1,1,0,0,0-1,1v7a1,1,0,0,0,1,1h7a1,1,0,0,0,1-1V14A1,1,0,0,0,10,13ZM9,20H4V15H9ZM21,2H14a1,1,0,0,0-1,1v7a1,1,0,0,0,1,1h7a1,1,0,0,0,1-1V3A1,1,0,0,0,21,2ZM20,9H15V4h5Zm1,4H14a1,1,0,0,0-1,1v7a1,1,0,0,0,1,1h7a1,1,0,0,0,1-1V14A1,1,0,0,0,21,13Zm-1,7H15V15h5ZM10,2H3A1,1,0,0,0,2,3v7a1,1,0,0,0,1,1h7a1,1,0,0,0,1-1V3A1,1,0,0,0,10,2ZM9,9H4V4H9Z"></path></svg></div></span></a></div></li><li class="css-1b4r4c9"><div class="css-1koed79 dropdown"><a type="button" id="react-aria5830123768-10" aria-haspopup="true" aria-expanded="false" class="css-1koed79" aria-label="Explore" href="http://localhost:3000/explore"><span class="css-mcwjf4"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="css-eyx4do"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm1,17.93V19a1,1,0,0,0-2,0v.93A8,8,0,0,1,4.07,13H5a1,1,0,0,0,0-2H4.07A8,8,0,0,1,11,4.07V5a1,1,0,0,0,2,0V4.07A8,8,0,0,1,19.93,11H19a1,1,0,0,0,0,2h.93A8,8,0,0,1,13,19.93ZM15.14,7.55l-5,2.12a1,1,0,0,0-.52.52l-2.12,5a1,1,0,0,0,.21,1.1,1,1,0,0,0,.7.3.93.93,0,0,0,.4-.09l5-2.12a1,1,0,0,0,.52-.52l2.12-5a1,1,0,0,0-1.31-1.31Zm-2.49,5.1-2.28,1,1-2.28,2.28-1Z"></path></svg></div></span></a></div></li><li class="css-1b4r4c9"><div class="css-1koed79 dropdown"><a type="button" id="react-aria5830123768-13" aria-haspopup="true" aria-expanded="false" class="css-1koed79" aria-label="Alerting" href="http://localhost:3000/alerting/list"><span class="css-mcwjf4"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 24 24" width="24" height="24" class="css-eyx4do"><path d="M18,13.18V10a6,6,0,0,0-5-5.91V3a1,1,0,0,0-2,0V4.09A6,6,0,0,0,6,10v3.18A3,3,0,0,0,4,16v2a1,1,0,0,0,1,1H8.14a4,4,0,0,0,7.72,0H19a1,1,0,0,0,1-1V16A3,3,0,0,0,18,13.18ZM8,10a4,4,0,0,1,8,0v3H8Zm4,10a2,2,0,0,1-1.72-1h3.44A2,2,0,0,1,12,20Zm6-3H6V16a1,1,0,0,1,1-1H17a1,1,0,0,1,1,1Z"></path></svg></div></span></a></div></li><li class="css-14jfy4r"><div class="css-1uf1299 dropdown"><a type="button" id="react-aria5830123768-16" aria-haspopup="true" aria-expanded="false" class="css-1uf1299" aria-label="Configuration" href="http://localhost:3000/datasources"><span class="css-mcwjf4"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="css-eyx4do"><path d="M21.32,9.55l-1.89-.63.89-1.78A1,1,0,0,0,20.13,6L18,3.87a1,1,0,0,0-1.15-.19l-1.78.89-.63-1.89A1,1,0,0,0,13.5,2h-3a1,1,0,0,0-.95.68L8.92,4.57,7.14,3.68A1,1,0,0,0,6,3.87L3.87,6a1,1,0,0,0-.19,1.15l.89,1.78-1.89.63A1,1,0,0,0,2,10.5v3a1,1,0,0,0,.68.95l1.89.63-.89,1.78A1,1,0,0,0,3.87,18L6,20.13a1,1,0,0,0,1.15.19l1.78-.89.63,1.89a1,1,0,0,0,.95.68h3a1,1,0,0,0,.95-.68l.63-1.89,1.78.89A1,1,0,0,0,18,20.13L20.13,18a1,1,0,0,0,.19-1.15l-.89-1.78,1.89-.63A1,1,0,0,0,22,13.5v-3A1,1,0,0,0,21.32,9.55ZM20,12.78l-1.2.4A2,2,0,0,0,17.64,16l.57,1.14-1.1,1.1L16,17.64a2,2,0,0,0-2.79,1.16l-.4,1.2H11.22l-.4-1.2A2,2,0,0,0,8,17.64l-1.14.57-1.1-1.1L6.36,16A2,2,0,0,0,5.2,13.18L4,12.78V11.22l1.2-.4A2,2,0,0,0,6.36,8L5.79,6.89l1.1-1.1L8,6.36A2,2,0,0,0,10.82,5.2l.4-1.2h1.56l.4,1.2A2,2,0,0,0,16,6.36l1.14-.57,1.1,1.1L17.64,8a2,2,0,0,0,1.16,2.79l1.2.4ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z"></path></svg></div></span></a></div></li><li class="css-1b4r4c9"><div class="css-1koed79 dropdown"><a type="button" id="react-aria5830123768-19" aria-haspopup="true" aria-expanded="false" class="css-1koed79" aria-label="Server admin" href="http://localhost:3000/admin/users"><span class="css-mcwjf4"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="css-eyx4do"><path d="M19.63,3.65a1,1,0,0,0-.84-.2,8,8,0,0,1-6.22-1.27,1,1,0,0,0-1.14,0A8,8,0,0,1,5.21,3.45a1,1,0,0,0-.84.2A1,1,0,0,0,4,4.43v7.45a9,9,0,0,0,3.77,7.33l3.65,2.6a1,1,0,0,0,1.16,0l3.65-2.6A9,9,0,0,0,20,11.88V4.43A1,1,0,0,0,19.63,3.65ZM18,11.88a7,7,0,0,1-2.93,5.7L12,19.77,8.93,17.58A7,7,0,0,1,6,11.88V5.58a10,10,0,0,0,6-1.39,10,10,0,0,0,6,1.39Z"></path></svg></div></span></a></div></li><li class="css-1b4r4c9"><div class="css-1koed79 dropdown"><a type="button" id="react-aria5830123768-22" aria-haspopup="true" aria-expanded="false" class="css-1koed79" aria-label="admin" href="http://localhost:3000/profile"><span class="css-mcwjf4"><img src="map-default_files/46d229b033af06a191ff2267bca9ae56.jpg" alt="admin logo"></span></a></div></li><li class="css-1b4r4c9"><div class="css-1koed79 dropdown"><a href="#" type="button" id="react-aria5830123768-25" aria-haspopup="true" aria-expanded="false" class="css-1koed79" aria-label="Help"><span class="css-mcwjf4"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="css-eyx4do"><path d="M11.29,15.29a1.58,1.58,0,0,0-.12.15.76.76,0,0,0-.09.18.64.64,0,0,0-.06.18,1.36,1.36,0,0,0,0,.2.84.84,0,0,0,.08.38.9.9,0,0,0,.54.54.94.94,0,0,0,.76,0,.9.9,0,0,0,.54-.54A1,1,0,0,0,13,16a1,1,0,0,0-.29-.71A1,1,0,0,0,11.29,15.29ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20ZM12,7A3,3,0,0,0,9.4,8.5a1,1,0,1,0,1.73,1A1,1,0,0,1,12,9a1,1,0,0,1,0,2,1,1,0,0,0-1,1v1a1,1,0,0,0,2,0v-.18A3,3,0,0,0,12,7Z"></path></svg></div></span></a></div></li></ul><div class="css-lh0t43"></div></div><div class="css-tx6jwr"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="css-1pb8xj2"><path d="M17,9.17a1,1,0,0,0-1.41,0L12,12.71,8.46,9.17a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42l4.24,4.24a1,1,0,0,0,1.42,0L17,10.59A1,1,0,0,0,17,9.17Z"></path></svg></div></div></div><div style="position: absolute; height: 6px; display: none;" class="track-horizontal"><div style="position: relative; display: block; height: 100%;" class="thumb-horizontal"></div></div><div style="position: absolute; width: 6px; display: none;" class="track-vertical"><div style="position: relative; display: block; width: 100%;" class="thumb-vertical"></div></div></div><span data-focus-scope-end="true" hidden=""></span></nav></div><main class="main-view"><div id="ngRoot"><grafana-app></grafana-app></div><div class="page-alert-list"><div class="css-66nrdr-vertical-group" style="width: 100%; height: 100%;"></div></div><div class="css-j6bmzp"><div class="css-12b7m5k" style="position: relative; overflow: hidden; width: 100%; height: auto; min-height: 100%; max-height: 100%;"><div style="position: relative; overflow: scroll; margin-right: 0px; margin-bottom: 0px; min-height: calc(100% + 0px); max-height: calc(100% + 0px);" class="scrollbar-view"><div class="page-scrollbar-content"><div><div class="page-container"><div class="css-drqdab"><img src="map-default_files/small.svg" class="css-1s7eaw6" alt="Worldmap Panel logo" loading="lazy"><div class="css-uqjhln"><nav class="css-1qxirbh" aria-label="Breadcrumb"><ol><li><a class="css-csdj4s" href="http://localhost:3000/plugins">Plugins</a></li><li><a href="http://localhost:3000/plugins/grafana-worldmap-panel?page=overview" aria-current="page">Worldmap Panel</a></li></ol></nav><div class="css-d80w3q"><span>Grafana Labs</span><a href="https://github.com/grafana/worldmap-panel">Project site</a><a href="https://github.com/grafana/worldmap-panel/blob/master/LICENSE">MIT License</a><span><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 24 24" width="16" height="16" class="css-eyx4do"><path d="M14.29,17.29,13,18.59V13a1,1,0,0,0-2,0v5.59l-1.29-1.3a1,1,0,0,0-1.42,1.42l3,3a1,1,0,0,0,.33.21.94.94,0,0,0,.76,0,1,1,0,0,0,.33-.21l3-3a1,1,0,0,0-1.42-1.42ZM18.42,6.22A7,7,0,0,0,5.06,8.11,4,4,0,0,0,6,16a1,1,0,0,0,0-2,2,2,0,0,1,0-4A1,1,0,0,0,7,9a5,5,0,0,1,9.73-1.61,1,1,0,0,0,.78.67,3,3,0,0,1,.24,5.84,1,1,0,1,0,.5,1.94,5,5,0,0,0,.17-9.62Z"></path></svg></div> 85,601,583 </span><span>0.3.3</span><div class="css-vyoujf"><a href="https://grafana.com/docs/grafana/latest/plugins/plugin-signatures/" target="_blank" rel="noreferrer" class="css-ti9e4i"><div class="css-bu52a"><div class="css-1xtcplq-horizontal-group" style="width: 100%; height: 100%;"><div class="css-86p2in-layoutChildrenWrapper"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="css-eyx4do"><path d="M17,9V7A5,5,0,0,0,7,7V9a3,3,0,0,0-3,3v7a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V12A3,3,0,0,0,17,9ZM9,7a3,3,0,0,1,6,0V9H9Zm9,12a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V12a1,1,0,0,1,1-1H17a1,1,0,0,1,1,1Z"></path></svg></div></div><div class="css-86p2in-layoutChildrenWrapper"><span>Signed</span></div></div></div></a></div></div><div class="css-gp1c12"><div class="css-1xe0h4r">Dependencies:</div><div><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85.12 92.46" width="16" height="16" class="css-1q1syaf"><defs><linearGradient id="a" gradientUnits="userSpaceOnUse" x1="42.56" y1="113.26" x2="42.56" y2="28.78"><stop offset="0" stop-color="#FFF200"></stop><stop offset="1" stop-color="#F15A29"></stop></linearGradient></defs><path fill="url(#a)" d="M85.01 40.8a33.05 33.05 0 00-3.32-11.69 34.33 34.33 0 00-6.89-9.42c1.3-5.17-1.59-9.65-1.59-9.65-4.98-.31-8.14 1.54-9.31 2.39l-.59-.25a39.35 39.35 0 00-8.21-2.26l-.51-.07C52.41 2.9 46.18 0 46.18 0c-6.95 4.41-8.27 10.57-8.27 10.57l-.07.36-1.15.34c-.53.16-1.06.36-1.59.55-.53.21-1.06.41-1.58.64a31.81 31.81 0 00-6 3.35l-.24-.11c-9.62-3.68-18.17.75-18.17.75-.78 10.24 3.84 16.68 4.76 17.86a44.72 44.72 0 00-2.34 10.15C2.63 48.84 0 57.84 0 57.84c7.42 8.53 16.07 9.06 16.07 9.06l.02-.02a38.29 38.29 0 005.68 7.68c-2.71 7.74.38 14.18.38 14.18a23.03 23.03 0 0014.83-4.52 37.7 37.7 0 0012.19 1.93h.31l.21-.01.41-.01.4-.02.01.01c3.89 5.55 10.74 6.34 10.74 6.34 4.87-5.13 5.15-10.22 5.15-11.33v-.07-.15l-.01-.23a30.34 30.34 0 008.37-8.86c5.51.32 9.39-3.41 9.39-3.41-.91-5.74-4.18-8.54-4.87-9.07l-.07-.05a.61.61 0 01-.06-.05l-.12-.08.08-1.04c.04-.62.06-1.24.06-1.85v-.81-.16l-.02-.38-.03-.52a7.25 7.25 0 00-.09-.98l-.06-.48-.07-.47a23.94 23.94 0 00-7.83-14.37 23.17 23.17 0 00-15.69-5.81l-.41.01H54.73l-.17.01-.4.03-.45.04a18.4 18.4 0 00-12.4 6.49 18.02 18.02 0 00-4.14 10.35 14.54 14.54 0 00-.02 1.65l.01.35.05.63a13.93 13.93 0 005.97 10.16 13.6 13.6 0 003.76 1.79c1.27.38 2.54.54 3.74.53l.44-.01.24-.01.24-.01.38-.04.11-.01.12-.02.23-.03.43-.08.42-.09a10.46 10.46 0 002.26-.83c.45-.23.87-.5 1.26-.77l.33-.25a.96.96 0 00.15-1.35.94.94 0 00-1.19-.23l-.3.16c-.35.17-.71.32-1.09.45a9.54 9.54 0 01-1.83.37l-.32.02-.32.01-.31-.01-.39-.02h-.05l-.09.02-.17-.02-.35-.04a9.98 9.98 0 01-5.36-2.51 9.71 9.71 0 01-3.21-7.39l.02-.47v-.09l.01-.12.02-.23a12.18 12.18 0 016.94-9.8 12.02 12.02 0 014.87-1.07h.23l.27.01.17.01h.1l.27.02a15.57 15.57 0 016.3 1.89 15.18 15.18 0 016.17 6.4 14.52 14.52 0 011.53 5.45l.02.29.01.29.01.29v.52l-.01.28-.03.67a24.8 24.8 0 01-.31 2.46 19.65 19.65 0 01-11.12 14.22 19.46 19.46 0 01-7.28 1.72l-.15.01h-1.02-.09a25.45 25.45 0 01-6.61-1.02 26.1 26.1 0 01-18.72-23.19l-.02-.32-.01-.08V49.57l-.01-.28v-.37l-.01-.4v-.08-.19l.01-.63a29.56 29.56 0 01.65-5.24 34.3 34.3 0 012.46-7.51 27.12 27.12 0 015.61-8.09 22.83 22.83 0 015.69-4.12c.34-.19.7-.35 1.05-.52l.53-.24.54-.23c.72-.3 1.46-.56 2.21-.8l.56-.17.57-.16c.38-.11.76-.2 1.14-.29l.58-.13.58-.12.58-.11.29-.05.29-.04.59-.09.66-.09.65-.08.41-.04.28-.03.14-.01.16-.01.66-.04.33-.02H51.17l.14-.01.56-.03a30.82 30.82 0 016.58.48 30.5 30.5 0 017.89 2.62 31.8 31.8 0 016.44 4.2l.35.3.34.3.66.61.64.62.61.63a33.4 33.4 0 015.43 7.62l.16.3.15.3.29.6c.09.2.19.39.27.59l.25.58a34.09 34.09 0 011.73 5.16c.09.35.42.58.78.55a.72.72 0 00.66-.71c.04-.95.01-2.05-.09-3.3z"></path></svg></div>Grafana 3.x.x</div></div><p>World Map panel for Grafana. Displays time series data or geohash data from Elasticsearch overlaid on a world map.</p><div class="css-1xtcplq-horizontal-group" style="width: 100%; height: auto;"><div class="css-3h7b25-layoutChildrenWrapper"><div class="css-1xtcplq-horizontal-group" style="width: 100%; height: auto;"><div class="css-3h7b25-layoutChildrenWrapper"><button class="css-mk7eo3-button" type="button"><span class="css-1mhnkuh">Uninstall</span></button></div></div></div><div class="css-3h7b25-layoutChildrenWrapper"></div></div></div></div></div></div><div><div class="page-container"><div class=""><div class="css-af3vye" role="tablist"><div class="css-1ciwanz"><a href="http://localhost:3000/plugins/grafana-worldmap-panel?page=overview" class="css-1xejmuh-activeTabStyle" aria-label="Tab Overview" role="tab" aria-selected="true"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="css-eyx4do"><path d="M9,10h1a1,1,0,0,0,0-2H9a1,1,0,0,0,0,2Zm0,2a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM20,8.94a1.31,1.31,0,0,0-.06-.27l0-.09a1.07,1.07,0,0,0-.19-.28h0l-6-6h0a1.07,1.07,0,0,0-.28-.19.32.32,0,0,0-.09,0A.88.88,0,0,0,13.05,2H7A3,3,0,0,0,4,5V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V9S20,9,20,8.94ZM14,5.41,16.59,8H15a1,1,0,0,1-1-1ZM18,19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V5A1,1,0,0,1,7,4h5V7a3,3,0,0,0,3,3h3Zm-3-3H9a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2Z"></path></svg></div>Overview</a></div><div class="css-1ciwanz"><a href="http://localhost:3000/plugins/grafana-worldmap-panel?page=version-history" class="css-r385mj" aria-label="Tab Version history" role="tab" aria-selected="false"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="css-eyx4do"><path d="M12,2A10,10,0,0,0,5.12,4.77V3a1,1,0,0,0-2,0V7.5a1,1,0,0,0,1,1H8.62a1,1,0,0,0,0-2H6.22A8,8,0,1,1,4,12a1,1,0,0,0-2,0A10,10,0,1,0,12,2Zm0,6a1,1,0,0,0-1,1v3a1,1,0,0,0,1,1h2a1,1,0,0,0,0-2H13V9A1,1,0,0,0,12,8Z"></path></svg></div>Version history</a></div></div></div></div></div><div class="page-container page-body"><div class="css-1jq44ml"><div class="css-14f7up"><h1>Worldmap Panel Plugin for Grafana</h1>
+<p>The Worldmap Panel is a tile map of the world that can be overlaid 
+with circles representing data points from a query. It can be used with 
+time series metrics, with geohash data from Elasticsearch or data in the
+ Table format.</p>
+<p><img src="map-default_files/worldmap-world.png" alt="Worldmap"></p>
+<h2>How The Worldmap Works (Theory and Examples)</h2>
+<p>The Worldmap panel needs two sources of data:</p>
+<ul>
+<li>a location (latitude and longitude)</li>
+<li>data that has a link to a location</li>
+</ul>
+<p>The data comes from a database query: Prometheus, InfluxDB, Graphite,
+ Elasticsearch, MySQL etc. It can be in the Time Series format or in the
+ Table format.</p>
+<h3>Time Series Format</h3>
+<p>If it is in the <strong>Time Series format</strong> then the metric 
+name needs to match a key from a list of locations. That key is usually a
+ country code or city name. The list of locations can come from a file 
+or an HTTP endpoint.</p>
+<p>The list of locations can be provided in several ways:</p>
+<ul>
+<li>json files with locations and their coordinates (the plugin includes list for countries and US states)</li>
+<li>json endpoints that return a list of locations and their coordinates</li>
+</ul>
+<p>Time Series data contains a timestamp, a metric name and a numeric 
+value. In other words, a typical query for a time series database. Here 
+is some time series data from Graphite:</p>
+<pre><code class="language-json">[
+  {"target": "SE", "datapoints": [[183255.0, 1529755200]]},
+  {"target": "US", "datapoints": [[192224.0, 1529755200]]}
+]
+</code></pre>
+<p>Location data should be in the JSON format and should be an array of JSON objects with four properties:</p>
+<pre><code class="language-json">[
+  {
+    "key": "SE",
+    "latitude": 60.128161,
+    "longitude": 18.643501,
+    "name": "Sweden"
+  },
+  {
+    "key": "US",
+    "latitude": 37.09024,
+    "longitude": -95.712891,
+    "name": "United States"
+  }
+]
+</code></pre>
+<p>The Worldmap will then match the metric name (target in the example 
+data) with a key field from the location data. With this example data 
+there will be two circles drawn on the map, one for Sweden and one for 
+the United States with values 183255 and 192224.</p>
+<h3>Table Format</h3>
+<p>If the data is in the <strong>Table format</strong> then it should 
+have a column that is a geohash or two columns that contain the latitude
+ and longitude (together with the columns for the data).</p>
+<p>Table data is tabular data with columns and rows. Here is an example of Table data from InfluxDB:</p>
+<pre><code class="language-json">"series": [
+  {
+    "name": "logins.count",
+    "tags": {
+      "geohash": "9wvfgzurfzb"
+    },
+    "columns": [
+      "time",
+      "metric"
+    ],
+    "values": [
+      [
+        1529762933815,
+        75.654324173059
+      ]
+    ]
+  }
+]
+</code></pre>
+<p>This query contains both data (the value <code>75.654324173059</code>) and a location (the geohash <code>9wvfgzurfzb</code> which is in Colorado). So using these, the Worldmap panel will draw one circle in Colorado, USA with the value 75.654324173059.</p>
+<h2>Time Series Data as the Data Source</h2>
+<p>Supported Databases:</p>
+<ul>
+<li>Graphite</li>
+<li>InfluxDB</li>
+<li>OpenTSDB</li>
+<li>Prometheus</li>
+<li>MySQL</li>
+<li>Postgres</li>
+<li>MSSQL</li>
+<li>Elasticsearch</li>
+</ul>
+<p>The following location files are included in the plugin:</p>
+<ul>
+<li>Countries (2 letter codes)</li>
+<li>Countries (3 letter codes)</li>
+<li>US states</li>
+</ul>
+<p>Alternatively, you can provide your own location lists by using:</p>
+<ul>
+<li>A JSON endpoint that returns a list of locations</li>
+<li>A JSONP endpoint that returns a list of locations</li>
+</ul>
+<p>This works by matching country codes (like US or GB or FR) or US 
+state codes (TX or NY) to a metric name. If a metric name matches a 
+country in the list of countries then a circle will be drawn at that 
+location.</p>
+<p>If you want to match to other data than countries or states, then you
+ will have to provide custom location data. The current way to do that 
+is via a JSON endpoint that returns a json file with location data (See 
+Map Data Options)</p>
+<p>The size of the circle depends on the value of the matched metric. 
+Circle size is relative e.g. if you have 3 countries with values 1, 2 
+and 3 or 100, 200 and 300 then you will get one small circle, one medium
+ circle and one large circle.</p>
+<h3>Time Series - Graphite and InfluxDB</h3>
+<p>Here are some examples of Time Series Queries</p>
+<h4>Graphite Query</h4>
+<p>Use the aliasByNode function to point to the field containing the 
+country code. See the image below for an example of a graphite query.</p>
+<p><img src="map-default_files/worldmap-timeseries-query.png" alt="Graphite Query for Countries"></p>
+<p>Example dashboard for Worldmap with Graphite queries on <a href="http://localhost:3000/d/000000003/worldmap-panels?panelId=8&amp;fullscreen&amp;edit&amp;orgId=1" target="_blank">the Grafana play site</a>.</p>
+<h4>InfluxDB Query</h4>
+<p>The Group By clause should be the country code and an alias is needed too. The alias should be in the form <code>$tag_&lt;field name&gt;</code>.</p>
+<p><img src="map-default_files/influx-query.png" alt="Influx Query for Countries"></p>
+<h4>Elasticsearch Query for Countries</h4>
+<p>Use a Group By clause on the field containing the country code and a Then by clause with Date Histogram by <code>@timestamp</code> (or corresponding date field).</p>
+<p><img src="map-default_files/elasticsearch-query.png" alt="Elasticsearch Query for Countries"></p>
+<h4>Map Data Options for Time Series Data</h4>
+<p>Under the Worldmap tab, choose either the <code>countries</code> or <code>states</code> option.</p>
+<p><img src="map-default_files/countries-option.png" alt="Worldmap Options for Countries"></p>
+<p>Using a JSON endpoint to return a custom list of locations:</p>
+<p><img src="map-default_files/json-endpoint.png" alt="Worldmap Options for JSON"></p>
+<p>The endpoint used here is for the demo version of worldPing - <a href="https://worldpingdemo.grafana.net/api/plugin-proxy/raintank-worldping-app/api/v2/probes/locations" target="_blank">https://worldpingdemo.grafana.net/api/plugin-proxy/raintank-worldping-app/api/v2/probes/locations</a>. If you have your own endpoint defined it must be reachable from the client side, as it is approached by client's browser.</p>
+<p>Using a JSONP endpoint (if you need to wrap the JSON to get around CORS problems):</p>
+<p><img src="map-default_files/jsonp-endpoint.png" alt="Worldmap Options for JSONP"></p>
+<p>For some details on troubleshooting JSON/JSONP check <a href="https://github.com/grafana/worldmap-panel/issues/47" target="_blank">#47</a>.</p>
+<h2>Geohashes as the Data Source</h2>
+<p>Supported Databases:</p>
+<ul>
+<li>ElasticSearch</li>
+</ul>
+<p>The <a href="https://www.elastic.co/guide/en/elasticsearch/reference/2.3/geo-point.html" target="_blank">Geo-point</a>
+ data type with geohash indexing in Elasticsearch can also be used as a 
+datasource for the worldmap panel. Grafana has a new bucket aggregate 
+for Elasticsearch queries - Geo Hash Grid that allows grouping of 
+coordinates. The Geo Hash Grid has a precision option where 1 is the 
+highest level and 7 is the lowest.</p>
+<p><img src="map-default_files/worldmap-geohash-query.png" alt="Elasticsearch Query for Worldmap"></p>
+<p>Three fields need to be provided by the ElasticSearch query:</p>
+<ul>
+<li>A metric. This is free text and should match the aggregation used (Count, Average, Sum, Unique Count etc.)</li>
+<li>Location Name (optional - geohash value will be shown if not chosen)</li>
+<li>geo_point field that provides the geohash value.</li>
+</ul>
+<p><img src="map-default_files/es-options.png" alt="Elasticsearch Query for Worldmap"></p>
+<h2>Table Data as the Data Source</h2>
+<p>Supported Databases:</p>
+<ul>
+<li>InfluxDB</li>
+<li>Elasticsearch</li>
+<li>MySQL, Postgres, MSSQL</li>
+<li>Any database that can return data in Table Format</li>
+</ul>
+<p>If a datasource can return Table Data then on the Metrics tab in Grafana choose the <code>FORMAT AS</code> Table option.</p>
+<h3>Table Data with a Geohash Column</h3>
+<p>Similar to the Elasticsearch query above, 3 fields are expected (2 of them are mandatory)</p>
+<ul>
+<li>A <em>metric</em> field. This is used to give the circle a value and determines how large the circle is.</li>
+<li>A <em>geohash</em> field. This is used to calculate where the circle should be drawn.</li>
+<li>an optional location name field (shown in the mouse over). Used to 
+label each circle on the map. If it is empty then the geohash value is 
+used as the label.</li>
+</ul>
+<p>The field mappings have to be specified on the Worldmap settings tab.</p>
+<p><img src="map-default_files/8cd520be-3fec-11e6-8dc9-2ecf7b16ad5f.png" alt="Example influxdb query"></p>
+<h3>Table Data with Latitude and Longitude Columns</h3>
+<p>The Table Data format also works with two columns for latitude and longitude instead of a geohash column.</p>
+<ul>
+<li>A <em>metric</em> field. This is used to give the circle a value and determines how large the circle is.</li>
+<li>Latitude/Longitude Fields. These are used to calculate where the circle should be drawn.</li>
+<li>an optional location name field (shown in the mouse over). Used to 
+label each circle on the map. If it is empty then the geohash value is 
+used as the label.</li>
+</ul>
+<h2>JSON result as the Data Source</h2>
+<p>Supported Databases:</p>
+<ul>
+<li>Warp&nbsp;10 via <a href="https://github.com/cityzendata/grafana-warp10" target="_blank">grafana-warp10-datasource</a> plugin</li>
+</ul>
+<p>It supports any datasource capable of generating a JSON response with
+ a  a custom list of locations (the same format that for the JSON 
+enpoint).</p>
+<h3>Map Data Options</h3>
+<h4>Location Data</h4>
+<p>There are four ways to provide data for the worldmap panel:</p>
+<ul>
+<li><em>countries</em>: This is a list of all the countries in the 
+world. It works by matching a country code (US, FR, AU) to a node alias 
+in a time series query.</li>
+<li><em>states</em>: Similar to countries but for the states in USA e.g. CA for California</li>
+<li><em>geohash</em>: An ElasticSearch query that returns geohashes.</li>
+<li><em>json</em>: A json endpoint that returns custom json. Examples of the format are the <a href="https://github.com/grafana/worldmap-panel/blob/master/src/data/countries.json" target="_blank">countries data used in first option</a> or <a href="https://github.com/grafana/worldmap-panel/blob/master/src/data/probes.json" target="_blank">this list of cities</a>.</li>
+<li><em>jsonp</em>: A jsonp endpoint that returns custom json wrapped as jsonp. Use this if you are having problems with CORS.</li>
+<li><em>table</em>: This expects the metric query to return data points with a field named geohash or two fields/columns named <code>latitude</code> and <code>longitude</code>. This field should contain a string in the <a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/geohashes.html" target="_blank">geohash form</a>. For example: London -&gt; "gcpvh3zgu992".</li>
+</ul>
+<h4>Aggregation</h4>
+<p>If you chose <em>countries</em> or <em>table</em> as the source of the location data then you can choose an aggregation here: avg, total etc.</p>
+<p>For Graphite, be aware that the default value for Max Data Points is 
+1. This is to aggregate data points per country to one value in the most
+ accurate way. This will by default, consolidate by average. To change 
+the consolidation, use the consolidateBy function like so:</p>
+<p><img src="map-default_files/graphite-consolidateby.png" alt="Graphite Consolidate By"></p>
+<p>Or just remove the 1 from the Max Data Point field and use the 
+consolidation functions in Map Data Options (though depending on the 
+timerange and amount of data points, this will be usually less accurate 
+due to Graphite consolidation).</p>
+<p><img src="map-default_files/graphite-maxdatapoints.png" alt="Graphite Max Data Points"></p>
+<h4>ES Metric/Location Name/geo_point Field</h4>
+<p>Three fields need to be provided by the ElasticSearch query. They are
+ text fields and should be the field names from the query under the 
+Metrics tab.</p>
+<ul>
+<li>The Metric in Elasticsearch is one of <code>Count</code>, <code>Average</code>, <code>Sum</code> etc.</li>
+<li>Location Name is the field that gives the circle a name. If it is 
+blank, then the geohash value is shown in the popover instead of the 
+location.</li>
+<li>geo_point is the GeoHashGrid field that provides the geohash value.</li>
+</ul>
+<h3>Map Visual Option Settings</h3>
+<p><strong>Center</strong></p>
+<p>This settings configures the default center of the map. There are 5 
+centers to choose from or you can choose a custom center or last GeoHash
+ center..For a custom center there are two fields: latitude and 
+longitude. Examples of values are 37.09024, -95.712891 for the center of
+ the US or 55.378051, -3.435973 for Great Britain. Last GeoHash center 
+will centered the map on the last GeoHash received from the data.</p>
+<p><strong>Initial Zoom</strong></p>
+<p>The initial zoom factor for the map. This is a value between 1 and 18 where 1 is the most zoomed out.</p>
+<p><strong>Min Circle Size</strong></p>
+<p>This is minimum size for a circle in pixels.</p>
+<p><strong>Max Circle Size</strong></p>
+<p>This is the maximum size for a circle in pixels. Depending on the 
+zoom level you might want a larger or smaller max circle size to avoid 
+overlapping.</p>
+<p><strong>Unit</strong></p>
+<p>The Unit is shown in the popover when you hover over a circle. There 
+are two fields the singular form and the plural form. E.g. visit/visits 
+or error/errors</p>
+<p><strong>Show Legend</strong></p>
+<p>Shows/hide the legend on the bottom left that shows the threshold ranges and their associated colors.</p>
+<h3>Threshold Options</h3>
+<p>Thresholds control the color of the circles.</p>
+<p>If one value is specified then two colors are used. For example, if 
+the threshold is set to 10 then values under 10 get the first color and 
+values that are 10 or more get the second color.</p>
+<p>The threshold field also accepts 2 or more comma-separated values. 
+For example, if you have 2 values that represents 3 ranges that 
+correspond to the three colors. For example: if the thresholds are 70, 
+90 then the first color represents &lt; 70, the second color represents 
+between 70 and 90 and the third color represents &gt; 90.</p>
+<h3>CHANGELOG</h3>
+<p>The latest changes can be found here: <a href="https://github.com/grafana/worldmap-panel/blob/master/CHANGELOG.md" target="_blank">CHANGELOG.md</a></p>
+</div></div></div><footer class="footer"><div class="text-center"><ul><li><a href="https://grafana.com/docs/grafana/latest/?utm_source=grafana_footer" target="_blank" rel="noopener"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="css-eyx4do"><path d="M12,14a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V15A1,1,0,0,0,12,14Zm.38-2.92A1,1,0,0,0,11.8,11l-.18.06-.18.09-.15.12A1,1,0,0,0,11,12a1,1,0,0,0,.29.71,1,1,0,0,0,.33.21A.84.84,0,0,0,12,13a1,1,0,0,0,.71-.29A1,1,0,0,0,13,12a1,1,0,0,0-.29-.71A1.15,1.15,0,0,0,12.38,11.08ZM20,8.94a1.31,1.31,0,0,0-.06-.27l0-.09a1.07,1.07,0,0,0-.19-.28h0l-6-6h0a1.07,1.07,0,0,0-.28-.19l-.1,0A1.1,1.1,0,0,0,13.06,2H7A3,3,0,0,0,4,5V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V9S20,9,20,8.94ZM14,5.41,16.59,8H15a1,1,0,0,1-1-1ZM18,19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V5A1,1,0,0,1,7,4h5V7a3,3,0,0,0,3,3h3Z"></path></svg></div> Documentation</a></li><li><a href="https://grafana.com/products/enterprise/?utm_source=grafana_footer" target="_blank" rel="noopener"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="css-eyx4do"><path d="M11.29,15.29a1.58,1.58,0,0,0-.12.15.76.76,0,0,0-.09.18.64.64,0,0,0-.06.18,1.36,1.36,0,0,0,0,.2.84.84,0,0,0,.08.38.9.9,0,0,0,.54.54.94.94,0,0,0,.76,0,.9.9,0,0,0,.54-.54A1,1,0,0,0,13,16a1,1,0,0,0-.29-.71A1,1,0,0,0,11.29,15.29ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20ZM12,7A3,3,0,0,0,9.4,8.5a1,1,0,1,0,1.73,1A1,1,0,0,1,12,9a1,1,0,0,1,0,2,1,1,0,0,0-1,1v1a1,1,0,0,0,2,0v-.18A3,3,0,0,0,12,7Z"></path></svg></div> Support</a></li><li><a href="https://community.grafana.com/?utm_source=grafana_footer" target="_blank" rel="noopener"><div class="css-wf08df-Icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="css-eyx4do"><path d="M19,8H18V5a3,3,0,0,0-3-3H5A3,3,0,0,0,2,5V17a1,1,0,0,0,.62.92A.84.84,0,0,0,3,18a1,1,0,0,0,.71-.29l2.81-2.82H8v1.44a3,3,0,0,0,3,3h6.92l2.37,2.38A1,1,0,0,0,21,22a.84.84,0,0,0,.38-.08A1,1,0,0,0,22,21V11A3,3,0,0,0,19,8ZM8,11v1.89H6.11a1,1,0,0,0-.71.29L4,14.59V5A1,1,0,0,1,5,4H15a1,1,0,0,1,1,1V8H11A3,3,0,0,0,8,11Zm12,7.59-1-1a1,1,0,0,0-.71-.3H11a1,1,0,0,1-1-1V11a1,1,0,0,1,1-1h8a1,1,0,0,1,1,1Z"></path></svg></div> Community</a></li><li><a href="http://localhost:3000/admin/upgrading" rel="noopener"> Open Source</a></li><li><a rel="noopener"> v9.1.2 (3c13120cde)</a></li></ul></div></footer></div></div><div style="position: absolute; height: 6px; display: none;" class="track-horizontal"><div style="position: relative; display: block; height: 100%;" class="thumb-horizontal"></div></div><div style="position: absolute; width: 6px; display: none;" class="track-vertical"><div style="position: relative; display: block; width: 100%;" class="thumb-vertical"></div></div></div></div> </main></div><div id="grafana-portal-container"></div></div><script nonce="">window.grafanaBootData = {
+        user: {"isSignedIn":true,"id":1,"externalUserId":"","login":"admin","email":"admin@localhost","name":"admin","lightTheme":false,"orgCount":1,"orgId":1,"orgName":"Main Org.","orgRole":"Admin","isGrafanaAdmin":true,"gravatarUrl":"/avatar/46d229b033af06a191ff2267bca9ae56","timezone":"browser","weekStart":"browser","locale":"en-US","helpFlags1":0,"hasEditPermissionInFolders":true,"permissions":{"alert.instances.external:read":true,"alert.instances.external:write":true,"alert.instances:create":true,"alert.instances:read":true,"alert.instances:write":true,"alert.notifications.external:read":true,"alert.notifications.external:write":true,"alert.notifications:read":true,"alert.notifications:write":true,"alert.provisioning:read":true,"alert.provisioning:write":true,"alert.rules.external:read":true,"alert.rules.external:write":true,"alert.rules:create":true,"alert.rules:delete":true,"alert.rules:read":true,"alert.rules:write":true,"annotations:create":true,"annotations:delete":true,"annotations:read":true,"annotations:write":true,"apikeys:create":true,"apikeys:delete":true,"apikeys:read":true,"dashboards.permissions:read":true,"dashboards.permissions:write":true,"dashboards:create":true,"dashboards:delete":true,"dashboards:read":true,"dashboards:write":true,"datasources.id:read":true,"datasources:create":true,"datasources:delete":true,"datasources:explore":true,"datasources:query":true,"datasources:read":true,"datasources:write":true,"folders.permissions:read":true,"folders.permissions:write":true,"folders:create":true,"folders:delete":true,"folders:read":true,"folders:write":true,"ldap.config:reload":true,"ldap.status:read":true,"ldap.user:read":true,"ldap.user:sync":true,"org.users:add":true,"org.users:read":true,"org.users:remove":true,"org.users:write":true,"orgs.preferences:read":true,"orgs.preferences:write":true,"orgs.quotas:read":true,"orgs.quotas:write":true,"orgs:create":true,"orgs:delete":true,"orgs:read":true,"orgs:write":true,"plugins.app:access":true,"provisioning:reload":true,"server.stats:read":true,"serviceaccounts.permissions:read":true,"serviceaccounts.permissions:write":true,"serviceaccounts:create":true,"serviceaccounts:delete":true,"serviceaccounts:read":true,"serviceaccounts:write":true,"settings:read":true,"teams.permissions:read":true,"teams.permissions:write":true,"teams:create":true,"teams:delete":true,"teams:read":true,"teams:write":true,"users.authtoken:read":true,"users.authtoken:write":true,"users.password:write":true,"users.permissions:write":true,"users.quotas:read":true,"users.quotas:write":true,"users:create":true,"users:delete":true,"users:disable":true,"users:enable":true,"users:logout":true,"users:read":true,"users:write":true}},
+        settings: {"alertingEnabled":null,"alertingErrorOrTimeout":"alerting","alertingMinInterval":1,"alertingNoDataOrNullValues":"no_data","allowOrgCreate":true,"angularSupportEnabled":true,"appSubUrl":"","appUrl":"http://localhost:3000/","applicationInsightsConnectionString":"","applicationInsightsEndpointUrl":"","authProxyEnabled":false,"autoAssignOrg":true,"awsAllowedAuthProviders":["default","keys","credentials"],"awsAssumeRoleEnabled":true,"azure":{"cloud":"AzureCloud","managedIdentityEnabled":false},"azureAuthEnabled":false,"buildInfo":{"buildstamp":1661859081,"commit":"3c13120cde","edition":"Open Source","env":"production","hasUpdate":false,"hideVersion":false,"latestVersion":"9.1.2","version":"9.1.2"},"caching":{"enabled":true},"dashboardPreviews":{"systemRequirements":{"met":false,"requiredImageRendererPluginVersion":""},"thumbnailsExist":false},"datasources":{"-- Dashboard --":{"type":"datasource","name":"-- Dashboard --","meta":{"id":"dashboard","type":"datasource","name":"-- Dashboard --","info":{"author":{"name":"","url":""},"description":"","links":null,"logos":{"small":"public/img/icn-datasource.svg","large":"public/img/icn-datasource.svg"},"build":{},"screenshots":null,"version":"","updated":""},"dependencies":{"grafanaDependency":"","grafanaVersion":"*","plugins":[]},"includes":null,"category":"","preload":false,"backend":false,"routes":null,"skipDataQuery":false,"autoEnabled":false,"annotations":false,"metrics":true,"alerting":false,"explore":false,"tables":false,"logs":false,"tracing":false,"builtIn":true,"streaming":false,"signature":"internal","module":"app/plugins/datasource/dashboard/module","baseUrl":"public/app/plugins/datasource/dashboard"},"isDefault":false,"preload":false,"jsonData":{}},"-- Grafana --":{"id":-1,"uid":"grafana","type":"datasource","name":"-- Grafana --","meta":{"id":"grafana","type":"datasource","name":"-- Grafana --","info":{"author":{"name":"","url":""},"description":"","links":null,"logos":{"small":"public/img/icn-datasource.svg","large":"public/img/icn-datasource.svg"},"build":{},"screenshots":null,"version":"","updated":""},"dependencies":{"grafanaDependency":"","grafanaVersion":"*","plugins":[]},"includes":null,"category":"","preload":false,"backend":true,"routes":null,"skipDataQuery":false,"autoEnabled":false,"annotations":true,"metrics":true,"alerting":false,"explore":false,"tables":false,"logs":false,"tracing":false,"builtIn":true,"streaming":false,"signature":"internal","module":"app/plugins/datasource/grafana/module","baseUrl":"public/app/plugins/datasource/grafana"},"isDefault":false,"preload":false,"jsonData":{}},"-- Mixed --":{"type":"datasource","name":"-- Mixed --","meta":{"id":"mixed","type":"datasource","name":"-- Mixed --","info":{"author":{"name":"","url":""},"description":"","links":null,"logos":{"small":"public/img/icn-datasource.svg","large":"public/img/icn-datasource.svg"},"build":{},"screenshots":null,"version":"","updated":""},"dependencies":{"grafanaDependency":"","grafanaVersion":"*","plugins":[]},"includes":null,"category":"","preload":false,"backend":false,"routes":null,"skipDataQuery":false,"autoEnabled":false,"annotations":false,"metrics":true,"alerting":false,"explore":false,"tables":false,"logs":false,"tracing":false,"queryOptions":{"minInterval":true},"builtIn":true,"mixed":true,"streaming":false,"signature":"internal","module":"app/plugins/datasource/mixed/module","baseUrl":"public/app/plugins/datasource/mixed"},"isDefault":false,"preload":false,"jsonData":{}}},"dateFormats":{"fullDate":"YYYY-MM-DD HH:mm:ss","useBrowserLocale":false,"interval":{"millisecond":"HH:mm:ss.SSS","second":"HH:mm:ss","minute":"HH:mm","hour":"MM/DD HH:mm","day":"MM/DD","month":"YYYY-MM","year":"YYYY"},"defaultTimezone":"browser","defaultWeekStart":"browser"},"defaultDatasource":"-- Grafana --","disableLoginForm":false,"disableSanitizeHtml":false,"disableUserSignUp":true,"editorsCanAdmin":false,"exploreEnabled":true,"expressionsEnabled":true,"externalUserMngInfo":"","externalUserMngLinkName":"","externalUserMngLinkUrl":"","featureToggles":{"cloudWatchDynamicLabels":true,"commandPalette":true,"explore2Dashboard":true,"lokiQueryBuilder":true,"promQueryBuilder":true},"feedbackLinksEnabled":true,"googleAnalyticsId":"","grafanaJavascriptAgent":{"enabled":false,"customEndpoint":"","errorInstrumentalizationEnabled":false,"consoleInstrumentalizationEnabled":false,"webVitalsInstrumentalizationEnabled":false,"apiKey":""},"helpEnabled":true,"http2Enabled":false,"jwtHeaderName":"","jwtUrlLogin":false,"ldapEnabled":false,"licenseInfo":{"edition":"Open Source","enabledFeatures":{},"expiry":0,"licenseUrl":"/admin/upgrading","stateInfo":""},"liveEnabled":true,"loginHint":"email or username","minRefreshInterval":"5s","panels":{"alertlist":{"id":"alertlist","name":"Alert list","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Shows list of alerts and their current status","links":null,"logos":{"small":"public/app/plugins/panel/alertlist/img/icn-singlestat-panel.svg","large":"public/app/plugins/panel/alertlist/img/icn-singlestat-panel.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":15,"skipDataQuery":true,"state":"","baseUrl":"public/app/plugins/panel/alertlist","signature":"internal","module":"app/plugins/panel/alertlist/module"},"annolist":{"id":"annolist","name":"Annotations list","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"List annotations","links":null,"logos":{"small":"public/app/plugins/panel/annolist/img/icn-annolist-panel.svg","large":"public/app/plugins/panel/annolist/img/icn-annolist-panel.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":100,"skipDataQuery":true,"state":"","baseUrl":"public/app/plugins/panel/annolist","signature":"internal","module":"app/plugins/panel/annolist/module"},"barchart":{"id":"barchart","name":"Bar chart","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Categorical charts with group support","links":null,"logos":{"small":"public/app/plugins/panel/barchart/img/barchart.svg","large":"public/app/plugins/panel/barchart/img/barchart.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":2,"skipDataQuery":false,"state":"beta","baseUrl":"public/app/plugins/panel/barchart","signature":"internal","module":"app/plugins/panel/barchart/module"},"bargauge":{"id":"bargauge","name":"Bar gauge","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Horizontal and vertical gauges","links":null,"logos":{"small":"public/app/plugins/panel/bargauge/img/icon_bar_gauge.svg","large":"public/app/plugins/panel/bargauge/img/icon_bar_gauge.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":5,"skipDataQuery":false,"state":"","baseUrl":"public/app/plugins/panel/bargauge","signature":"internal","module":"app/plugins/panel/bargauge/module"},"candlestick":{"id":"candlestick","name":"Candlestick","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/candlestick/img/candlestick.svg","large":"public/app/plugins/panel/candlestick/img/candlestick.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"beta","baseUrl":"public/app/plugins/panel/candlestick","signature":"internal","module":"app/plugins/panel/candlestick/module"},"dashlist":{"id":"dashlist","name":"Dashboard list","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"List of dynamic links to other dashboards","links":null,"logos":{"small":"public/app/plugins/panel/dashlist/img/icn-dashlist-panel.svg","large":"public/app/plugins/panel/dashlist/img/icn-dashlist-panel.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":16,"skipDataQuery":true,"state":"","baseUrl":"public/app/plugins/panel/dashlist","signature":"internal","module":"app/plugins/panel/dashlist/module"},"gauge":{"id":"gauge","name":"Gauge","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Standard gauge visualization","links":null,"logos":{"small":"public/app/plugins/panel/gauge/img/icon_gauge.svg","large":"public/app/plugins/panel/gauge/img/icon_gauge.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":4,"skipDataQuery":false,"state":"","baseUrl":"public/app/plugins/panel/gauge","signature":"internal","module":"app/plugins/panel/gauge/module"},"geomap":{"id":"geomap","name":"Geomap","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Geomap panel","links":null,"logos":{"small":"public/app/plugins/panel/geomap/img/icn-geomap.svg","large":"public/app/plugins/panel/geomap/img/icn-geomap.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"beta","baseUrl":"public/app/plugins/panel/geomap","signature":"internal","module":"app/plugins/panel/geomap/module"},"gettingstarted":{"id":"gettingstarted","name":"Getting Started","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/gettingstarted/img/icn-dashlist-panel.svg","large":"public/app/plugins/panel/gettingstarted/img/icn-dashlist-panel.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":true,"sort":100,"skipDataQuery":true,"state":"","baseUrl":"public/app/plugins/panel/gettingstarted","signature":"internal","module":"app/plugins/panel/gettingstarted/module"},"graph":{"id":"graph","name":"Graph (old)","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"The old default graph panel","links":null,"logos":{"small":"public/app/plugins/panel/graph/img/icn-graph-panel.svg","large":"public/app/plugins/panel/graph/img/icn-graph-panel.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":13,"skipDataQuery":false,"state":"deprecated","baseUrl":"public/app/plugins/panel/graph","signature":"internal","module":"app/plugins/panel/graph/module"},"heatmap":{"id":"heatmap","name":"Heatmap","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Like a histogram over time","links":null,"logos":{"small":"public/app/plugins/panel/heatmap/img/icn-heatmap-panel.svg","large":"public/app/plugins/panel/heatmap/img/icn-heatmap-panel.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":10,"skipDataQuery":false,"state":"","baseUrl":"public/app/plugins/panel/heatmap","signature":"internal","module":"app/plugins/panel/heatmap/module"},"heatmap-old":{"id":"heatmap-old","name":"Heatmap (legacy)","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Legacy heatmap panel based on angular, d3, and flot","links":[{"name":"Brendan Gregg - Heatmaps","url":"http://www.brendangregg.com/heatmaps.html"},{"name":"Brendan Gregg - Latency Heatmaps","url":" http://www.brendangregg.com/HeatMaps/latency.html"}],"logos":{"small":"public/app/plugins/panel/heatmap-old/img/icn-heatmap-panel.svg","large":"public/app/plugins/panel/heatmap-old/img/icn-heatmap-panel.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"deprecated","baseUrl":"public/app/plugins/panel/heatmap-old","signature":"internal","module":"app/plugins/panel/heatmap-old/module"},"histogram":{"id":"histogram","name":"Histogram","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/histogram/img/histogram.svg","large":"public/app/plugins/panel/histogram/img/histogram.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":12,"skipDataQuery":false,"state":"beta","baseUrl":"public/app/plugins/panel/histogram","signature":"internal","module":"app/plugins/panel/histogram/module"},"logs":{"id":"logs","name":"Logs","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/logs/img/icn-logs-panel.svg","large":"public/app/plugins/panel/logs/img/icn-logs-panel.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"","baseUrl":"public/app/plugins/panel/logs","signature":"internal","module":"app/plugins/panel/logs/module"},"news":{"id":"news","name":"News","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"RSS feed reader","links":null,"logos":{"small":"public/app/plugins/panel/news/img/news.svg","large":"public/app/plugins/panel/news/img/news.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":17,"skipDataQuery":true,"state":"beta","baseUrl":"public/app/plugins/panel/news","signature":"internal","module":"app/plugins/panel/news/module"},"nodeGraph":{"id":"nodeGraph","name":"Node Graph","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/nodeGraph/img/icn-node-graph.svg","large":"public/app/plugins/panel/nodeGraph/img/icn-node-graph.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"beta","baseUrl":"public/app/plugins/panel/nodeGraph","signature":"internal","module":"app/plugins/panel/nodeGraph/module"},"piechart":{"id":"piechart","name":"Pie chart","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"The new core pie chart visualization","links":null,"logos":{"small":"public/app/plugins/panel/piechart/img/icon_piechart.svg","large":"public/app/plugins/panel/piechart/img/icon_piechart.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":8,"skipDataQuery":false,"state":"","baseUrl":"public/app/plugins/panel/piechart","signature":"internal","module":"app/plugins/panel/piechart/module"},"stat":{"id":"stat","name":"Stat","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Big stat values \u0026 sparklines","links":null,"logos":{"small":"public/app/plugins/panel/stat/img/icn-singlestat-panel.svg","large":"public/app/plugins/panel/stat/img/icn-singlestat-panel.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":3,"skipDataQuery":false,"state":"","baseUrl":"public/app/plugins/panel/stat","signature":"internal","module":"app/plugins/panel/stat/module"},"state-timeline":{"id":"state-timeline","name":"State timeline","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"State changes and durations","links":null,"logos":{"small":"public/app/plugins/panel/state-timeline/img/timeline.svg","large":"public/app/plugins/panel/state-timeline/img/timeline.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":9,"skipDataQuery":false,"state":"beta","baseUrl":"public/app/plugins/panel/state-timeline","signature":"internal","module":"app/plugins/panel/state-timeline/module"},"status-history":{"id":"status-history","name":"Status history","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Periodic status history","links":null,"logos":{"small":"public/app/plugins/panel/status-history/img/status.svg","large":"public/app/plugins/panel/status-history/img/status.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":11,"skipDataQuery":false,"state":"beta","baseUrl":"public/app/plugins/panel/status-history","signature":"internal","module":"app/plugins/panel/status-history/module"},"table":{"id":"table","name":"Table","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Supports many column styles","links":null,"logos":{"small":"public/app/plugins/panel/table/img/icn-table-panel.svg","large":"public/app/plugins/panel/table/img/icn-table-panel.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":6,"skipDataQuery":false,"state":"","baseUrl":"public/app/plugins/panel/table","signature":"internal","module":"app/plugins/panel/table/module"},"table-old":{"id":"table-old","name":"Table (old)","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Table Panel for Grafana","links":null,"logos":{"small":"public/app/plugins/panel/table-old/img/icn-table-panel.svg","large":"public/app/plugins/panel/table-old/img/icn-table-panel.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"deprecated","baseUrl":"public/app/plugins/panel/table-old","signature":"internal","module":"app/plugins/panel/table-old/module"},"text":{"id":"text","name":"Text","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Supports markdown and html content","links":null,"logos":{"small":"public/app/plugins/panel/text/img/icn-text-panel.svg","large":"public/app/plugins/panel/text/img/icn-text-panel.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":14,"skipDataQuery":true,"state":"","baseUrl":"public/app/plugins/panel/text","signature":"internal","module":"app/plugins/panel/text/module"},"timeseries":{"id":"timeseries","name":"Time series","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Time based line, area and bar charts","links":null,"logos":{"small":"public/app/plugins/panel/timeseries/img/icn-timeseries-panel.svg","large":"public/app/plugins/panel/timeseries/img/icn-timeseries-panel.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":1,"skipDataQuery":false,"state":"","baseUrl":"public/app/plugins/panel/timeseries","signature":"internal","module":"app/plugins/panel/timeseries/module"},"traces":{"id":"traces","name":"Traces","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/traces/img/traces-panel.svg","large":"public/app/plugins/panel/traces/img/traces-panel.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"beta","baseUrl":"public/app/plugins/panel/traces","signature":"internal","module":"app/plugins/panel/traces/module"},"welcome":{"id":"welcome","name":"Welcome","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"","links":null,"logos":{"small":"public/app/plugins/panel/welcome/img/icn-dashlist-panel.svg","large":"public/app/plugins/panel/welcome/img/icn-dashlist-panel.svg"},"build":{},"screenshots":null,"version":"","updated":""},"hideFromList":true,"sort":100,"skipDataQuery":true,"state":"","baseUrl":"public/app/plugins/panel/welcome","signature":"internal","module":"app/plugins/panel/welcome/module"}},"passwordHint":"password","pluginAdminEnabled":true,"pluginAdminExternalManageEnabled":false,"pluginCatalogHiddenPlugins":[""],"pluginCatalogURL":"https://grafana.com/grafana/plugins/","pluginsToPreload":[],"profileEnabled":true,"queryHistoryEnabled":true,"rbacBuiltInRoleAssignmentEnabled":false,"rbacEnabled":true,"recordedQueries":{"enabled":true},"rendererAvailable":false,"rendererVersion":"","reporting":{"enabled":true},"rudderstackConfigUrl":"","rudderstackDataPlaneUrl":"","rudderstackSdkUrl":"","rudderstackWriteKey":"","secretsManagerPluginEnabled":false,"sentry":{"enabled":false,"dsn":"","customEndpoint":"/log","sampleRate":1},"sigV4AuthEnabled":false,"unifiedAlerting":{"minInterval":"10s"},"unifiedAlertingEnabled":true,"verifyEmailEnabled":false,"viewersCanEdit":false},
+        navTree: [{"id":"starred","text":"Starred","section":"core","icon":"star","sortWeight":-2000,"emptyMessageId":"starred-empty"},{"id":"dashboards","text":"Dashboards","section":"core","subTitle":"Manage dashboards and folders","icon":"apps","url":"/dashboards","sortWeight":-1800,"children":[{"id":"dashboards/browse","text":"Browse","icon":"sitemap","url":"/dashboards"},{"id":"dashboards/playlists","text":"Playlists","icon":"presentation-play","url":"/playlists"},{"id":"dashboards/snapshots","text":"Snapshots","icon":"camera","url":"/dashboard/snapshots"},{"id":"dashboards/library-panels","text":"Library panels","icon":"library-panel","url":"/library-panels"},{"id":"divider","text":"Divider","divider":true,"hideFromTabs":true},{"id":"dashboards/new","text":"New dashboard","icon":"plus","url":"/dashboard/new","hideFromTabs":true,"showIconInNavbar":true},{"id":"dashboards/folder/new","text":"New folder","subTitle":"Create a new folder to organize your dashboards","icon":"plus","url":"/dashboards/folder/new","hideFromTabs":true,"showIconInNavbar":true},{"id":"dashboards/import","text":"Import","subTitle":"Import dashboard from file or Grafana.com","icon":"plus","url":"/dashboard/import","hideFromTabs":true,"showIconInNavbar":true}]},{"id":"explore","text":"Explore","section":"core","subTitle":"Explore your data","icon":"compass","url":"/explore","sortWeight":-1700},{"id":"alerting","text":"Alerting","section":"core","subTitle":"Alert rules and notifications","icon":"bell","url":"/alerting/list","sortWeight":-1600,"children":[{"id":"alert-list","text":"Alert rules","icon":"list-ul","url":"/alerting/list"},{"id":"receivers","text":"Contact points","icon":"comment-alt-share","url":"/alerting/notifications"},{"id":"am-routes","text":"Notification policies","icon":"sitemap","url":"/alerting/routes"},{"id":"silences","text":"Silences","icon":"bell-slash","url":"/alerting/silences"},{"id":"groups","text":"Alert groups","icon":"layer-group","url":"/alerting/groups"},{"id":"alerting-admin","text":"Admin","icon":"cog","url":"/alerting/admin"},{"id":"divider","text":"Divider","divider":true,"hideFromTabs":true},{"id":"alert","text":"New alert rule","subTitle":"Create an alert rule","icon":"plus","url":"/alerting/new","hideFromTabs":true,"showIconInNavbar":true}]},{"id":"cfg","text":"Configuration","section":"config","subTitle":"Organization: Main Org.","icon":"cog","url":"/datasources","sortWeight":-1300,"children":[{"id":"datasources","text":"Data sources","description":"Add and configure data sources","icon":"database","url":"/datasources"},{"id":"users","text":"Users","description":"Manage org members","icon":"user","url":"/org/users"},{"id":"teams","text":"Teams","description":"Manage org groups","icon":"users-alt","url":"/org/teams"},{"id":"plugins","text":"Plugins","description":"View and configure plugins","icon":"plug","url":"/plugins"},{"id":"org-settings","text":"Preferences","description":"Organization preferences","icon":"sliders-v-alt","url":"/org"},{"id":"apikeys","text":"API keys","description":"Create \u0026 manage API keys","icon":"key-skeleton-alt","url":"/org/apikeys"},{"id":"serviceaccounts","text":"Service accounts","description":"Manage service accounts","icon":"gf-service-account","url":"/org/serviceaccounts"}]},{"id":"admin","text":"Server admin","section":"config","subTitle":"Manage all users and orgs","icon":"shield","url":"/admin/users","sortWeight":-1200,"hideFromTabs":true,"children":[{"id":"global-users","text":"Users","icon":"user","url":"/admin/users"},{"id":"global-orgs","text":"Orgs","icon":"building","url":"/admin/orgs"},{"id":"server-settings","text":"Settings","icon":"sliders-v-alt","url":"/admin/settings"},{"id":"admin-plugins","text":"Plugins","icon":"plug","url":"/admin/plugins"},{"id":"upgrading","text":"Stats and license","icon":"unlock","url":"/admin/upgrading"}]},{"id":"profile","text":"admin","section":"config","img":"/avatar/46d229b033af06a191ff2267bca9ae56","url":"/profile","sortWeight":-1100,"children":[{"id":"profile/settings","text":"Preferences","icon":"sliders-v-alt","url":"/profile"},{"id":"profile/notifications","text":"Notification history","icon":"bell","url":"/profile/notifications"},{"id":"profile/password","text":"Change password","icon":"lock","url":"/profile/password"},{"id":"sign-out","text":"Sign out","icon":"arrow-from-right","url":"/logout","target":"_self","hideFromTabs":true}]},{"id":"help","text":"Help","section":"config","subTitle":"Grafana v9.1.2 (3c13120cde)","icon":"question-circle","url":"#","sortWeight":-1000}],
+        themePaths: {
+          light: 'public/build/grafana.light.54fffb6dcf6204494323.css',
+          dark: 'public/build/grafana.dark.6c90b8800e5171d28a90.css'
+        }
+      };
+
+      window.__grafana_load_failed = function() {
+        var preloader = document.getElementsByClassName("preloader");
+        if (preloader.length) {
+          preloader[0].className = "preloader preloader--done";
+        }
+      }
+
+      
+      window.onload = function() {
+        if (window.__grafana_app_bundle_loaded) {
+          return;
+        }
+        window.__grafana_load_failed();
+      };
+
+      
+      </script><script nonce="" src="map-default_files/runtime.039659ce7c5e02f11df5.js"></script><script nonce="" src="map-default_files/8683.e8e950030315b5a81926.js"></script><script nonce="" src="map-default_files/6354.1768cf67d93e3edb7654.js"></script><script nonce="" src="map-default_files/8893.aa83759dfd69659e4433.js"></script><script nonce="" src="map-default_files/6151.e6d8219d85d0941f9bf8.js"></script><script nonce="" src="map-default_files/app.2e869d22a62a3c00d02d.js"></script><script nonce="">performance.mark('frontend_boot_js_done_time_seconds');</script></body></html>
