@@ -25,7 +25,7 @@ Some suggestions:
 - I wonder if there might be a way to use some of the cleaner CSS from a topic like `docs/tools.html` in the other top-level TOC topics like `docs/products/kafka/concepts.html`. Would it be possible to add a bit of context around the list of links?
 - Is there simpler style that could work for the reference pages? For example, in `docs/tools/cli/service.html` there are a lot of different styles in the first page fold: h2, h3 in preformatted/code, table with borders, table headers, inline code, bold text, hyperlinks, and code blocks.
 
-# Working in a public repo
+## Working in a public repo
 
 Some of the things I think about when working in public repos include:
 - Follow the community guidelines.
