@@ -1,0 +1,13 @@
+<input type="text" id="filter" onkeyup="filterSources(value)"></input>
+
+<script>
+    function filterSources(filter) {
+        const container = document.getElementsByClassName("docsContainer");
+        var sources = container[0].getElementsByTagName("h3");
+        //console.log(sources);
+        console.log(filter)
+        for (let source in sources){
+            console.log(source.nextElementSibling);
+        };
+    }
+</script>
